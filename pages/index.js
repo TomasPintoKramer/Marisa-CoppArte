@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Text, Box } from "@chakra-ui/react";
+import Contact from "../Components/Contact";
 
 export default function Home() {
   return (
-    <div 
-    // style={{ backgroundColor: "black",
+    <Box 
+    bgColor='black'
     //  height:'100%' }}
     >
       <Head>
@@ -14,6 +15,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Heading>Marisa Coppa</Heading>
-    </div>
+      <Contact id="contacto" />
+  
+    </Box>
   );
 }
