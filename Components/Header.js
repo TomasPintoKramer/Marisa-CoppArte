@@ -12,17 +12,22 @@ const Header = () => {
       p="1em"
       display="flex"
       flexDir="row"
-      justifyContent='space-around'
-      boxShadow='lg'
+      justifyContent="space-around"
+      boxShadow="lg"
     >
       <Heading fontSize="xl" fontWeight="bold">
-      Marisa Coppa
+        Marisa Coppa
       </Heading>
       <Text>Acerca de mi</Text>
       <Text>Muestras</Text>
       <Text>Colecciones</Text>
       <Text>Corpus Completo</Text>
-      <Link href="#contacto" scroll={false}><Text>Contacto</Text></Link>
+      <Text>Agenda</Text>
+      <Link href="#contacto" 
+      scroll={false}
+      >
+        <a>Contacto</a>
+      </Link>
     </Box>
   );
 };
