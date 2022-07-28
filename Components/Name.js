@@ -12,6 +12,7 @@ const Name = () => {
       height="200px"
       color="white"
       p="20%"
+      mb="10em"
     >
       {/* <Image src="https://static.arteinformado.com/documentos/eventos/07/70929/Marisa_Coppa,_Monumento_ecuestre.jpg" alt="https://drive.google.com/file/d/1nH254xlu8D0zAqLyfmn6E2GPEv54j2ew/view?usp=sharing"/> */}
       <Heading fontSize='75px' fontFamily='fantasy'>Marisa Coppa</Heading>

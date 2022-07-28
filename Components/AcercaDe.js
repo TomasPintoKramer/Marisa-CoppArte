@@ -1,20 +1,26 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Image } from "@chakra-ui/react";
 
-const AcercaDe = () => {
+const AcercaDe = ({img}) => {
   return (
+   
+      <Box 
+  id="acercade"
+  display="flex"
+  flexDir="row"
+  alignItems="center"
+  textAlign="center"
+  mx='5em'
+  mb="10em">
+      <Image width="60%" src={img}/>
     <Box
-      width="%100"
+      
       display="flex"
       flexDir="column"
-      justifyItems="center"
-      textAlign="center"
-      alignItems="center"
-      height="200px"
-      color="white"
-      m='10em'
-      //   bg="#FFFF99"
-    >
-      <Text fontWeight="medium">AcercaDe</Text>
+      alignItems="left"
+      textAlign="left"
+     px='2em'
+      width="50%"
+      >
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et
         aliquam sem, vitae vestibulum nulla. Duis diam diam, ultricies eget
@@ -43,7 +49,10 @@ const AcercaDe = () => {
         dolor sem, dapibus vel ligula id, egestas laoreet justo. Nulla dapibus
         porttitor est et pulvinar.
       </Text>
+     
     </Box>
+  </Box>
+    
   );
 };
 

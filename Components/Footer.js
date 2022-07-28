@@ -10,6 +10,7 @@ const Footer = () => {
     //   zIndex="916569406"
       backgroundColor="black"
       color="#FFFFFF"
+      // mt="1000"
       p="1em"
       display="flex"
       flexDir="row"

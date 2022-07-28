@@ -60,7 +60,8 @@ const Contact = () => {
       alignItems="center"
       justifyContent="center"
       py="2em"
-      // my="2em"
+       mb="10em"
+      id="contacto"
     >
       <Heading fontSize="lg">Contacto</Heading>
       <FormControl onSubmit={handleClick} width="30%" isInvalid={emailError}>

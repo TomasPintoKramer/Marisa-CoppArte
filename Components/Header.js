@@ -18,13 +18,33 @@ const Header = () => {
       <Heading fontSize="xl" fontWeight="bold">
         Marisa Coppa
       </Heading>
-      <Text>Acerca de mi</Text>
-      <Text>Muestras</Text>
-      <Text>Colecciones</Text>
-      <Text>Corpus Completo</Text>
-      <Text>Agenda</Text>
-      <Link href="#contacto" 
+      <Link href="#acercade" 
       scroll={false}
+      >
+        <a>Acerca de mi</a>
+      </Link>
+      <Link href="#muestras" 
+      scroll={false}
+      >
+        <a>Muestras</a>
+      </Link>
+      <Link href="#muestras" 
+      scroll={false}
+      >
+        <a>Colecciones</a>
+      </Link>
+      <Link href="#muestras" 
+      scroll={false}
+      >
+        <a>Corpus Completo</a>
+      </Link>
+      <Link href="#muestras" 
+      scroll={false}
+      >
+        <a>Agenda</a>
+      </Link>
+      <Link href="#contacto" 
+      scroll={true}
       >
         <a>Contacto</a>
       </Link>
