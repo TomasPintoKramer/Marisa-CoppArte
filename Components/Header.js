@@ -1,9 +1,26 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, useDisclosure, useMediaQuery, Drawer } from "@chakra-ui/react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [position, setPosition]=useState(false)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  
+  useEffect(() => {
+    window.addEventListener("scroll", function () {
+      let scroll = this.scrollY;
+      scroll>250? setPosition(true):setPosition(false)
+      scroll>250? onOpen:onClose
+      
+      console.log("🚀 ~ file: Header.js ~ line 8 ~ Header ~ isOpen", isOpen)
+     
+      
+    });
+  });
   return (
-    <Box
+    
+    <Drawer
+    onClose={onClose} isOpen={isOpen}
       position="sticky"
       top={0}
       zIndex="916569406"
@@ -48,8 +65,10 @@ const Header = () => {
       >
         <a>Contacto</a>
       </Link>
-    </Box>
-  );
+    </Drawer>
+    
+);
 };
+
 
 export default Header;
