@@ -2,12 +2,12 @@ import { Box, Text, Image } from "@chakra-ui/react";
 
 const AcercaDe = ({img}) => {
   return (
-   
       <Box 
   id="acercade"
   display="flex"
   flexDir="row"
   alignItems="center"
+  height="100%"
   textAlign="center"
   mx='5em'
   mb="10em">

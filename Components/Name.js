@@ -9,7 +9,7 @@ const Name = () => {
       justifyItems="center"
       textAlign="center"
       alignItems="center"
-      height="200px"
+      height="100%"
       color="white"
       p="20%"
       mb="10em"

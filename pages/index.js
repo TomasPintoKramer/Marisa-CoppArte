@@ -5,9 +5,10 @@ import Contact from "../Components/Contact";
 import Name from "../Components/Name";
 import AcercaDe from "../Components/AcercaDe";
 import Muestras from "../Components/Muestras.js";
-import Galeria from "../Components/Galeria";
+
 import storage from "../Firebase/client";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
+import Colecciones from "../Components/Colecciones";
 
 export default function Home({ imgs }) {
   return (
@@ -31,7 +32,7 @@ export default function Home({ imgs }) {
         <Name />
         <AcercaDe img={imgs} />
         <Muestras img={imgs}/>
-        <Galeria img={imgs} />
+        <Colecciones img={imgs}/>
         <Contact />
       </Box>
     </Box>

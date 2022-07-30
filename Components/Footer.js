@@ -6,11 +6,10 @@ const Footer = () => {
     <Box
       position="absolute"
       width='100%'
-      bottom='0'
+      bottom={0}
     //   zIndex="916569406"
       backgroundColor="black"
       color="#FFFFFF"
-      // mt="1000"
       p="1em"
       display="flex"
       flexDir="row"

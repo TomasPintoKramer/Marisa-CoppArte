@@ -17,6 +17,7 @@ const Muestras = ({img}) => {
   alignItems="center"
   textAlign="center"
   mx='5em'
+  height="100%"
   mb="10em">
     <Box
       
