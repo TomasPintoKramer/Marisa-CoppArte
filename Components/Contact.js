@@ -60,7 +60,7 @@ const Contact = () => {
       alignItems="center"
       justifyContent="center"
       py="2em"
-       mb="10em"
+       mb="5em"
       id="contacto"
     >
       <Heading fontSize="lg">Contacto</Heading>

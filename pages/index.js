@@ -39,31 +39,31 @@ export default function Home({ imgs }) {
   );
 }
 // Para buscar todas las img del storage
-// export async function getServerSideProps() {
-//   try {
-//     const list = await listAll(
-//       ref(storage, "gs://marisacopparte.appspot.com/cuadros")
-//     );
-//     const listUrl = await list.items.map((item) =>
-//       getDownloadURL(
-//         ref(storage, `gs://marisacopparte.appspot.com/${item._location.path}`)
-//       )
-//     );
-//     const urls = await Promise.all(listUrl);
-//     return { props: { imgs: urls } };
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// Para buscar una sola img
 export async function getServerSideProps() {
   try {
-    const url = await getDownloadURL(
-      ref(storage, "gs://marisacopparte.appspot.com/cuadros/Captura de Pantalla 2022-07-14 a la(s) 19.07.30.png")
-    )
-    return { props: { imgs: url } };
+    const list = await listAll(
+      ref(storage, "gs://marisacopparte.appspot.com/cuadros")
+    );
+    const listUrl = await list.items.map((item) =>
+      getDownloadURL(
+        ref(storage, `gs://marisacopparte.appspot.com/${item._location.path}`)
+      )
+    );
+    const urls = await Promise.all(listUrl);
+    return { props: { imgs: urls } };
   } catch (error) {
     console.log(error);
   }
 }
+
+// Para buscar una sola img
+// export async function getServerSideProps() {
+//   try {
+//     const url = await getDownloadURL(
+//       ref(storage, "gs://marisacopparte.appspot.com/cuadros/Captura de Pantalla 2022-07-14 a la(s) 19.07.30.png")
+//     )
+//     return { props: { imgs: url } };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }

@@ -1,14 +1,14 @@
 import { Image, SimpleGrid, AspectRatio } from "@chakra-ui/react";
 import Link from "next/link";
 
-const Galeria = ({ imgs }) => {
+const Galeria = ({ imgs, infos }) => {
   return (
     <SimpleGrid m="5em" columns={3} spacing={10}>
-      {imgs.map((img) => (
-        <Link href={`picture/${img.slice(img.length-30)})}`}>
+      {infos.map((info, i) => (
+        <Link href={`/${info._location.path_}`}>
         <a>
         <AspectRatio maxW="400px" ratio={4 / 3}>
-          <Image src={img} objectFit="cover" />
+          <Image src={imgs[i]} objectFit="cover" />
         </AspectRatio>
         </a>
         </Link>

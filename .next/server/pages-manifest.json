@@ -2,5 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/colection/CompleteCorpus": "pages/colection/CompleteCorpus.js"
+  "/cuadros/[picture]": "pages/cuadros/[picture].js",
+  "/colection/CompleteCorpus": "pages/colection/CompleteCorpus.js",
+  "/": "pages/index.js"
 }

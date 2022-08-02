@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <Box
-      position="absolute"
+      position="stiky"
       width='100%'
       bottom={0}
     //   zIndex="916569406"

@@ -5,10 +5,6 @@ import { useRouter } from "next/router";
 
 const Header = () => {
   const router = useRouter();
-  console.log(
-    "🚀 ~ file: Header.js ~ line 13 ~ Header ~ router",
-    router
-  );
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
@@ -46,22 +42,22 @@ const Header = () => {
             </Heading>
           </a>
         </Link>
-        <Link href="#acercade" scroll={false}>
+        <Link href="/#acercade" scroll={false}>
           <a>Acerca de mi</a>
         </Link>
-        <Link href="#muestras" scroll={false}>
+        <Link href="/#muestras" scroll={false}>
           <a>Muestras</a>
         </Link>
-        <Link href="#muestras" scroll={false}>
+        <Link href="/#muestras" scroll={false}>
           <a>Colecciones</a>
         </Link>
         <Link href="/colection/CompleteCorpus">
           <a>Corpus Completo</a>
         </Link>
-        <Link href="#muestras" scroll={false}>
+        <Link href="/#muestras" scroll={false}>
           <a>Agenda</a>
         </Link>
-        <Link href="#contacto" scroll={true}>
+        <Link href="/#contacto" scroll={true}>
           <a>Contacto</a>
         </Link>
         {/* </DrawerBody>
