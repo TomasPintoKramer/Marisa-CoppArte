@@ -6,8 +6,8 @@ import Name from "../Components/Name";
 import AcercaDe from "../Components/AcercaDe";
 import Muestras from "../Components/Muestras.js";
 
-import storage from "../Firebase/client";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
+import db from "../Firebase/client";
+import { query,  collection, getDocs } from "firebase/firestore";
 import Colecciones from "../Components/Colecciones";
 
 export default function Home({ imgs }) {
@@ -30,31 +30,45 @@ export default function Home({ imgs }) {
         // textAlign="center"
       >
         <Name />
-        <AcercaDe img={imgs} />
-        <Muestras img={imgs}/>
+        <AcercaDe img='https://drive.google.com/uc?export=view&id=1rGePrMMwf3vnQh4Dg9aFV794TVMbzuY2' />
+        <Muestras img='https://ibb.co/qNQHKQ0'/>
         <Colecciones img={imgs}/>
         <Contact />
       </Box>
     </Box>
   );
 }
-// Para buscar todas las img del storage
 export async function getServerSideProps() {
-  try {
-    const list = await listAll(
-      ref(storage, "gs://marisacopparte.appspot.com/cuadros")
-    );
-    const listUrl = await list.items.map((item) =>
-      getDownloadURL(
-        ref(storage, `gs://marisacopparte.appspot.com/${item._location.path}`)
-      )
-    );
-    const urls = await Promise.all(listUrl);
-    return { props: { imgs: urls } };
-  } catch (error) {
-    console.log(error);
+  try { 
+    const cuadrosQuery= await query(collection(db, 'cuadros'))
+    const querySnapshot= await getDocs(cuadrosQuery)
+    console.log("🚀 ~ file: index.js ~ line 45 ~ getServerSideProps ~ querySnapshot", querySnapshot)
+    const allDocs=  await querySnapshot.forEach((doc)=>JSON.stringify(doc.data()))
+    console.log("🚀 ~ file: index.js ~ line 46 ~ getServerSideProps ~ allDocs", allDocs)
+
+    return { props: { imgs: allDocs } }
+   } catch (error) {
+      console.log(error);
+    }
   }
-}
+
+// Para buscar todas las img del storage
+// export async function getServerSideProps() {
+//   try {
+//     const list = await listAll(
+//       ref(storage, "gs://marisacopparte.appspot.com/cuadros/index")
+//     );
+//     const listUrl = await list.items.map((item) =>
+//       getDownloadURL(
+//         ref(storage, `gs://marisacopparte.appspot.com/${item._location.path}`)
+//       )
+//     );
+//     const urls = await Promise.all(listUrl);
+//     return { props: { imgs: urls } };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
 // Para buscar una sola img
 // export async function getServerSideProps() {

@@ -1,5 +1,4 @@
 import {
-    Box,
     FormControl,
     FormLabel,
     FormErrorMessage,
@@ -9,8 +8,7 @@ import {
     Stack,
     Button,
     Textarea,
-    Heading,
-    ModalContent,
+    useToast
   } from "@chakra-ui/react";
   import useInput from "../hooks/useInput";
   import { useState } from "react";
@@ -20,8 +18,8 @@ import {
     emailjs.init("Y96ZZ1-tLFUi6QhjG")
     const serviceID="service_vn39nql"
     const templateID='template_vl0i4qs'
-    
     const publicKey="Y96ZZ1-tLFUi6QhjG"
+    const toast=useToast();
     const pais = useInput();
     const motivo = useInput();
     const consulta = useInput();
@@ -42,12 +40,17 @@ import {
     };
   
     const handleClick = (e) => {
-    //    if(pictureTitle) { motivo.value += pictureTitle} ;
-    //    console.log(motivo.value)
       emailjs.send(serviceID, templateID, {to_name:email, from_name:motivo.value +" "+pictureTitle, message:consulta.value}, publicKey)
       .then(
         (result) => {
-          alert("Message Sent Successfully");
+          toast({
+            title: 'Consulta Enviada!',
+            position:'top',
+            description: "En breve nos contacteremos con usted. Muchas gracias!",
+            status: 'success',
+            duration:3000,
+            isClosable: true,
+          });
           console.log(result.text);
         })
         .catch((error)=> console.log(error.text))
