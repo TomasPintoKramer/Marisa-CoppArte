@@ -42,11 +42,10 @@ export async function getServerSideProps() {
   try { 
     const cuadrosQuery= await query(collection(db, 'cuadros'))
     const querySnapshot= await getDocs(cuadrosQuery)
-    console.log("🚀 ~ file: index.js ~ line 45 ~ getServerSideProps ~ querySnapshot", querySnapshot)
-    const allDocs=  await querySnapshot.forEach((doc)=>JSON.stringify(doc.data()))
-    console.log("🚀 ~ file: index.js ~ line 46 ~ getServerSideProps ~ allDocs", allDocs)
-
-    return { props: { imgs: allDocs } }
+    let pictureArr=[]
+    querySnapshot.forEach((doc)=>arr.push(doc.data()))
+    console.log("🚀 ~ file: index.js ~ line 47 ~ getServerSideProps ~ allDocs", arr)
+    return { props: { imgs: arr } }
    } catch (error) {
       console.log(error);
     }
