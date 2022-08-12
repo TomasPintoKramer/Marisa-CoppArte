@@ -30,7 +30,7 @@ export default function Home({ imgs }) {
         // textAlign="center"
       >
         <Name />
-        <AcercaDe img='https://drive.google.com/uc?export=view&id=1rGePrMMwf3vnQh4Dg9aFV794TVMbzuY2' />
+        <AcercaDe img={imgs[0].url} />
         <Muestras img='https://ibb.co/qNQHKQ0'/>
         <Colecciones img={imgs}/>
         <Contact />
@@ -38,14 +38,15 @@ export default function Home({ imgs }) {
     </Box>
   );
 }
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try { 
     const cuadrosQuery= await query(collection(db, 'cuadros'))
     const querySnapshot= await getDocs(cuadrosQuery)
     let pictureArr=[]
-    querySnapshot.forEach((doc)=>arr.push(doc.data()))
-    console.log("🚀 ~ file: index.js ~ line 47 ~ getServerSideProps ~ allDocs", arr)
-    return { props: { imgs: arr } }
+    querySnapshot.forEach((doc)=>pictureArr.push(doc.data()))
+    pictureArr.forEach((doc)=>doc.url="https://drive.google.com/uc?export=view&id="+doc.url)
+    console.log("🚀 ~ file: index.js ~ line 47 ~ getStaticProps ~ allDocs", pictureArr)
+    return { props: { imgs: pictureArr } }
    } catch (error) {
       console.log(error);
     }
