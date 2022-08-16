@@ -11,7 +11,7 @@ const AcercaDe = ({img}) => {
   textAlign="center"
   mx='5em'
   mb="10em">
-      <Image width="60%" src={img}/>
+      <Image width="60%" src={img} alt="cualquiercosa"/>
     <Box
       
       display="flex"

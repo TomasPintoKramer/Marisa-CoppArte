@@ -46,7 +46,7 @@ const Muestras = ({img}) => {
         <ListItem>Facilisis in pretium nisl aliquet</ListItem>
       </UnorderedList>
     </Box>
-<Image width="60%" src={img}/>
+<Image width="60%" src={img} alt="cualquiercosa"/>
   </Box>)
 };
 
