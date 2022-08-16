@@ -21,9 +21,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db=getFirestore(app)
- const storage = getStorage(app)
+//  const storage = getStorage(app)
 
-const bucketName= "gs://marisacopparte.appspot.com/cuadros"
+// const bucketName= "gs://marisacopparte.appspot.com/cuadros"
 
 
 export default db;

@@ -2,9 +2,6 @@ import {
   Box,
   Text
 } from "@chakra-ui/react";
-import useInput from "../hooks/useInput";
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import ContactForm from "../Common/contactFrom";
 
 const Contact = () => {

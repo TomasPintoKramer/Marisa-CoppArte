@@ -23,23 +23,18 @@ import {
     const pais = useInput();
     const motivo = useInput();
     const consulta = useInput();
-    const [email, setEmail] = useState("");
+    const email = useInput();
     const [emailError, setEmailError] = useState(false);
   
-    const emailHandler = (e) => {
-      setEmail(e.target.value);
-      if (!expresiones.email.test(email)) {
-        setEmailError(true);
-      } else {
-        setEmailError(false);
-      }
-    };
   
     const expresiones = {
       email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //verifica que sea un email
     };
   
     const handleClick = (e) => {
+      if (!expresiones.email.test(email)) {
+        setEmailError(true);
+      }else{
       emailjs.send(serviceID, templateID, {to_name:email, from_name:motivo.value +" "+pictureTitle, message:consulta.value}, publicKey)
       .then(
         (result) => {
@@ -53,7 +48,7 @@ import {
           });
           console.log(result.text);
         })
-        .catch((error)=> console.log(error.text))
+        .catch((error)=> console.log(error.text))}
     };
   
     return (
@@ -65,15 +60,16 @@ import {
               bgColor="white"
               type="email"
               color="black"
-              value={email}
-              onChange={emailHandler}
+              {...email}
               />
             {!emailError ? (
                 <FormHelperText>
                 Por favor, ingrese su mail si quiere contactarse con nosotros.
               </FormHelperText>
             ) : (
-                <FormErrorMessage>El email es requerid.</FormErrorMessage>
+                <FormErrorMessage>
+                  Una dirección válida de email es requerida.
+                </FormErrorMessage>
                 )}
                 </FormControl>
                 <FormControl>
@@ -86,7 +82,7 @@ import {
                 </FormControl>
                 <FormControl>
             <FormLabel>Pais desde donde nos contacta:</FormLabel>
-            <Select {...pais} placeholder="Select country">
+            <Select {...pais} placeholder="Elija su país:">
               <option>Argentina</option>
               <option>Uruguay</option>
               <option>Paraguay</option>
@@ -106,7 +102,6 @@ import {
               onClick={handleClick}
               width="25%"
               color="black"
-              disabled={emailError}
               >
               Enviar
             </Button>

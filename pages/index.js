@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Heading, Text, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Contact from "../Components/Contact";
 import Name from "../Components/Name";
 import AcercaDe from "../Components/AcercaDe";
@@ -14,7 +13,6 @@ export default function Home({ imgs }) {
   return (
     <Box
       bgColor="black"
-      //  height:'100%' }}
     >
       <Head>
         <title>Marisa Coppa</title>
