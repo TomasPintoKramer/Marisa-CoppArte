@@ -10,7 +10,7 @@ import {
 
 } from "@chakra-ui/react";
 import { useRef } from "react";
-import ContactForm from "./contactFrom";
+import ContactForm from "./ContactFrom.js";
 
 function ModalConsult({ pictureTitle }) {
 
