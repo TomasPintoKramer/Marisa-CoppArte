@@ -53,10 +53,11 @@ import {
   
     return (
         <>
-          <Stack spacing={2}>
+          <Stack spacing={2} w='25%'>
         <FormControl isInvalid={emailError}>
-            <FormLabel>Email</FormLabel>
+            <FormLabel isRequired>Email</FormLabel>
             <Input
+              
               bgColor="white"
               type="email"
               color="black"
@@ -67,9 +68,7 @@ import {
                 Por favor, ingrese su mail si quiere contactarse con nosotros.
               </FormHelperText>
             ) : (
-                <FormErrorMessage>
-                  Una dirección válida de email es requerida.
-                </FormErrorMessage>
+                <FormErrorMessage>Una dirección válida de email es requerida.</FormErrorMessage>
                 )}
                 </FormControl>
                 <FormControl>
@@ -102,6 +101,7 @@ import {
               onClick={handleClick}
               width="25%"
               color="black"
+              disabled={email.value && motivo.value && consulta.value && pais.value}
               >
               Enviar
             </Button>

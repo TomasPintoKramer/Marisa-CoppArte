@@ -1,22 +1,22 @@
 import { Box, Heading, useDisclosure, Slide } from "@chakra-ui/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const Header = () => {
-  // const router = useRouter();
+const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", function () {
-  //     let scroll = this.scrollY;
-  //     if (router.asPath == "/") {
-  //       scroll > 250 ? onOpen() : onClose();
-  //     } else {
-  //       onOpen();
-  //     }
-  //   });
-  // },[]);
+  useEffect(() => {
+    window.addEventListener("scroll", function () {
+      let scroll = this.scrollY;
+      if (router.asPath == "/") {
+        scroll > 250 ? onOpen() : onClose();
+      } else {
+        onOpen();
+      }
+    });
+  });
   return (
     <Slide direction="top" in={isOpen} style={{ zIndex: 10 }}>
       <Box

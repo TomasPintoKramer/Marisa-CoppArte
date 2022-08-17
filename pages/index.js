@@ -29,7 +29,7 @@ export default function Home({ imgs }) {
       >
         <Name />
         <AcercaDe img={imgs[0].url} />
-        <Muestras img='https://ibb.co/qNQHKQ0'/>
+        <Muestras img={imgs[1].url}/>
         <Colecciones img={imgs}/>
         <Contact />
       </Box>
@@ -38,11 +38,10 @@ export default function Home({ imgs }) {
 }
 export async function getStaticProps() {
   try { 
-    const cuadrosQuery= await query(collection(db, 'cuadros'))
+    const cuadrosQuery= await query(collection(db, 'cuadrosInicio'))
     const querySnapshot= await getDocs(cuadrosQuery)
     let pictureArr=[]
     querySnapshot.forEach((doc)=>pictureArr.push(doc.data()))
-    pictureArr.forEach((doc)=>doc.url="https://drive.google.com/uc?export=view&id="+doc.url)
     console.log("🚀 ~ file: index.js ~ line 47 ~ getStaticProps ~ allDocs", pictureArr)
     return { props: { imgs: pictureArr } }
    } catch (error) {
